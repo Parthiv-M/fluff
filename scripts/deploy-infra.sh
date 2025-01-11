@@ -1,6 +1,6 @@
 #! /bin/bash
 
 cd "$(dirname "${BASH_SOURCE[0]}")"/
-cd ../infrasructure
+cd ../infrastructure
 terraform plan -out infra.tfplan
 terraform apply infra.tfplan
