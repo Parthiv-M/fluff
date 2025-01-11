@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@200..800&display=swap');
+
+:root {
+  --base-white: #EFEFEF;
+  --primary-dark: #280f36;
+  --primary-light: #CE9EEB;
+  --primary-error: #eb20b8;
+}
+
+body {
+  color: var(--primary-dark);
+  background: var(--base-white);
+  overflow-x: hidden;
+}
+
+a:not(:has(img)) {
+  border-bottom: 1px solid var(--primary-dark);
+}
+
+.font-poppins-medium {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.font-gemunu-libre {
+  font-family: "Gemunu Libre", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.text-light {
+  color: var(--primary-light);
+}
+
+.text-error {
+  color: var(--primary-error);
+}
+
+.bg-light {
+  background-color: var(--primary-light);
+}
+
+.bg-dark {
+  background-color: var(--primary-dark);
+}
+
+.bg-white {
+  background-color: var(--base-white);
+}
+
+.bg-error {
+  background-color: var(--primary-error);
+}
+
+.slide-up-absolute {
+  transition: position 1000;
+  animation: slide-up-absolute ease-in 100ms;
+}
+
+@keyframes slide-up-absolute {
+  0% {
+    opacity: 0;
+    bottom: -8px;
+  }
+  100% {
+    opacity: initial;
+    bottom: 16px;
+  }
+}
+
+/* loader CSS */
+.loader {
+  width: 35px;
+  padding: 8px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--primary-light);
+  --_m: 
+    conic-gradient(#0000 5%,#000),
+    linear-gradient(#000 0 0) content-box;
+  -webkit-mask: var(--_m);
+          mask: var(--_m);
+  -webkit-mask-composite: source-out;
+          mask-composite: subtract;
+  animation: l3 1s infinite linear;
+}
+@keyframes l3 {to{transform: rotate(1turn)}}

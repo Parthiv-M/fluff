@@ -1,0 +1,17 @@
+{
+  "name": "hello-world",
+  "version": "1.0.0",
+  "main": "hello.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.713.0",
+    "@aws-sdk/lib-dynamodb": "^3.713.0",
+    "aws-sdk": "^2.2.15",
+    "md5": "^2.3.0"
+  }
+}
