@@ -22,7 +22,8 @@ export default function Home() {
     return false;
   }
 
-  const createPaste = async (e: any) => {
+  // eslint-ignore-next-line @typescript-eslint/no-explicit-any
+  const createPaste = async (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
     setIsLoading(true);
     if (!isValidPasteText()) {
@@ -48,15 +49,17 @@ export default function Home() {
       } else {
         setError({ type: "apicall", message: "Could not create paste. Please try again later" });
       }
-    } catch (error) {
+    }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    catch (_) {
       setError({ type: "apicall", message: "Unexpected error ocurred" });
     } finally {
       setIsLoading(false);
     }
   }
 
-  const handleTextChange = (e: any) => {
-    setPasteContent(e.target.value)
+  const handleTextChange = (e: React.ChangeEvent) => {
+    setPasteContent((e.target as HTMLTextAreaElement)?.value)
     if (error && error.type === "validation") {
       setTimeout(() => {
         setError({

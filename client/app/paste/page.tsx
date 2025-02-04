@@ -11,6 +11,7 @@ const PasteContentArea = ({
   error
 }: {
   paste: PasteType | undefined;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   error: any
 }) => {
   if (paste && paste.pasteContent) {
@@ -68,10 +69,11 @@ export default function Page() {
       if (response.status === 200 && jsonRes.data) {
         setPaste(jsonRes.data);
       } else if (response.status === 200 && !jsonRes.data) {
-        console.log(jsonRes)
         setError({ type: "apicall", message: jsonRes.message });
       }
-    } catch (error) {
+    }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    catch (_) {
       setError({ type: "apicall", message: "Unexpected error occurred" });
     } finally {
       setIsLoading(false);

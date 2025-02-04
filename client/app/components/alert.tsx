@@ -1,13 +1,11 @@
 import Image from "next/image";
-import { ReactNode, useEffect, useState } from "react";
+import { Dispatch, ReactNode, SetStateAction, useEffect, useState } from "react";
 
 const Alert = ({
     width,
     classes,
     backgroundColor,
     textColor,
-    leadingIconAltText,
-    leadingIconPath,
     trailingChildren,
     trailingIconAltText,
     trailingIconPath,
@@ -20,28 +18,24 @@ const Alert = ({
     textColor?: string;
     width: string;
     classes?: string;
-    leadingIconPath?: string;
     trailingIconPath?: string;
-    leadingIconAltText?: string;
     trailingIconAltText: string;
     trailingAction: string;
     message: string;
     trailingChildren: ReactNode | ReactNode[],
     show: boolean;
-    setParentShowAlert: any
+    setParentShowAlert: Dispatch<SetStateAction<boolean>>
 }) => {
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [showAlert, setShowAlert] = useState<boolean>(show);
     useEffect(() => {
         setShowAlert(show);
-    }, [])
+    }, [show])
 
     const dismissAlert = () => {
         setShowAlert(false);
         setParentShowAlert(false)
-    }
-    const revealAlert = () => {
-        setShowAlert(true);
     }
 
     const baseClasses: string = "justify-between fixed bottom-10 rounded-sm py-3 px-4 z-20";
