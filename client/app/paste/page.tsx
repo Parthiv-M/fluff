@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Navbar from "../components/navbar";
 import Loader from "../components/loader";
 import Image from "next/image";
@@ -47,7 +47,7 @@ interface PasteType {
   id: string;
 }
 
-export default function Page() {
+function Page() {
   const params = useSearchParams();
   const router = useRouter();
 
@@ -97,4 +97,8 @@ export default function Page() {
       }
     </div>
   )
+}
+
+export default function PageWithSuspense() {
+  return <Suspense><Page /></Suspense>
 }
